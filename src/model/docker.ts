@@ -19,8 +19,9 @@ class Docker {
       case 'linux':
         runCommand = this.getLinuxCommand(image, parameters, overrideCommands, additionalVariables, entrypointBash);
         break;
-      case 'win32':
-        runCommand = this.getWindowsCommand(image, parameters);
+      case 'win32': 
+        runCommand = this.getLinuxCommand(image, parameters, overrideCommands, additionalVariables, entrypointBash);
+        //runCommand = this.getWindowsCommand(image, parameters);
         break;
       default:
         throw new Error(`Operation system, ${process.platform}, is not supported yet.`);
